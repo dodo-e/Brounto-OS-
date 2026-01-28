@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<link rel="styiesheet" href="style.css">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronto OS V.1.0</title>
+    <link rel="icon" href="bronoto logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="desktop">
+        <div class="icon calculator-icon" id="calculator-icon">
+            <span>🔢</span>
+            <span>Calculator</span>
+        </div>
+
+        <div class="icon clock-icon" id="clock-icon">
+            <span>🕒</span>
+            <span>Clock</span>
+        </div>
+
+        <div class="window" id="calculator-window">
+            <div class="title-bar">
+                <span class="title">Calculator</span>
+                <div class="window-controls">
+                    <button class="close-btn" onclick="document.getElementById('calculator-window').style.display='none'">X</button>
+                </div>
+            </div>
+
+            <div class="window-content">
+                <input type="text" id="calc-display" value="0" readonly>
+                
+                <div class="clac-buttons-grid">
+                    <button class="clac-btn utility" data-value="C">C</button>
+                    <button class="clac-btn utility" data-value="DEL">DEL</button>
+                    <button class="clac-btn operator" data-value="%">%</button>
+                    <button class="clac-btn operator" data-value="/">/</button>
+
+                    <button class="clac-btn number" data-value="7">7</button>
+                    <button class="clac-btn number" data-value="8">8</button>
+                    <button class="clac-btn number" data-value="9">9</button>
+                    <button class="clac-btn operator" data-value="*">X</button>
+
+                    <button class="clac-btn number" data-value="4">4</button>
+                    <button class="clac-btn number" data-value="5">5</button>
+                    <button class="clac-btn number" data-value="6">6</button>
+                    <button class="clac-btn operator" data-value="-">-</button>
+
+                    <button class="clac-btn number" data-value="1">1</button>
+                    <button class="clac-btn number" data-value="2">2</button>
+                    <button class="clac-btn number" data-value="3">3</button>
+                    <button class="clac-btn operator" data-value="+">+</button>
+
+                    <button class="clac-btn number zero" data-value="0">0</button>
+                    <button class="clac-btn number" data-value=".">.</button>
+                    <button class="clac-btn equals" data-value="=">=</button>
+                </div>
+            </div>
+        </div>
+<div class="window" id="clock-window">
+    <div class="title-bar">
+        <span class="title">Clock Tools</span>
+        <div class="window-controls">
+            <button class="close-btn" onclick="document.getElementById('clock-window').style.display='none'">X</button>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="clock-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-clock')">Clock</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-alarm')">Alarm</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-stopwatch')">Stopwatch</button>
+        </div>
+
+        <div id="tab-clock" class="tab-content" style="display:block;">
+            <div id="full-clock-display">00:00:00</div>
+        </div>
+
+        <div id="tab-alarm" class="tab-content" style="display:none;">
+            <h3>Set Alarm</h3>
+            <input type="time" id="alarm-time" style="padding: 10px; font-size: 1.2rem;">
+            <button class="clac-btn" onclick="setAlarm()">Set</button>
+            <p id="alarm-status">No alarm set</p>
+        </div>
+
+        <div id="tab-stopwatch" class="tab-content" style="display:none;">
+            <div id="stopwatch-display" style="font-size: 2.5rem; padding: 20px;">00:00:00</div>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <button class="clac-btn" onclick="startStopwatch()">Start</button>
+                <button class="clac-btn" onclick="stopStopwatch()">Stop</button>
+                <button class="clac-btn" onclick="resetStopwatch()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+       
+
+    </div> <script src="script.js"></script>
+</body>
+</html>

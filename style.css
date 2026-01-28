@@ -1,0 +1,206 @@
+/* 1. إعدادات الشاشة والجسم */
+body {
+    background-color: #77c2c2; /* لون مؤقت لحد ما تحط صورتك */
+    font-family: sans-serif;
+    font-weight: 680;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 2. الأيقونات على سطح المكتب */
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    transition: transform 0.2s;
+    width: 80px;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon span:first-child {
+    font-size: 2.5rem;
+}
+
+.icon span:last-child {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    background: rgba(0,0,0,0.4);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+/* 3. التنسيق العام للنوافذ (الآلة الحاسبة والساعة) */
+.window {
+    background: rgba(255, 255, 255, 0.85); /* شفافية مريحة للعين */
+    backdrop-filter: blur(12px); /* تأثير الضباب الزجاجي */
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: none; /* مخفية حتى نفتحها بالجافا سكريبت */
+    z-index: 10;
+}
+
+/* تعديل مكان الآلة الحاسبة بالتحديد */
+#calculator-window {
+    width: 320px;
+    top: 20px !important; /* رفعناها لفوق خالص عشان اللاب توب */
+    left: 50%;
+    transform: translateX(-50%); /* لضمان التوسط في المحور الأفقي */
+}
+
+/* 4. شريط العنوان (Title Bar) */
+.title-bar {
+    background: #2c3e50; /* لون غامق فخم */
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.close-btn {
+    background: #ff5f56;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: #ff3b30;
+}
+
+/* 5. محتوى الآلة الحاسبة */
+#calc-display {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    font-size: 2.5rem;
+    padding: 25px 15px;
+    text-align: right;
+    color: #2c3e50;
+    outline: none;
+}
+
+.clac-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+    gap: 1px;
+    background: #dcdde1; /* لون الفواصل */
+}
+
+.clac-btn {
+    padding: 20px;
+    border: none;
+    background: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.clac-btn:hover {
+    background: #f5f6fa;
+}
+
+.operator {
+    background: #f39c12; /* لون برتقالي للعمليات */
+    color: white;
+}
+
+.operator:hover {
+    background: #d47420;
+}
+
+.equals {
+    background: #01a345; /* لون أخضر للنتيجة */
+    color: rgb(255, 255, 255);
+}
+
+.utility {
+    color: #e74c3c;
+    background: #f9f9f9;
+}
+
+/* 6. نافذة الساعة */
+#clock-window {
+    width: 350px;
+    top: 150px; /* تظهر تحت الآلة الحاسبة أو في مكان مختلف */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#full-clock-display {
+    font-size: 3.5rem;
+    padding: 40px 20px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 200; /* خط رفيع مودرن */
+}
+/* تنسيق التبويبات */
+.clock-tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    background: #fff;
+    border-bottom: 2px solid #2ecc71;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: 20px;
+    animation: fadeIn 0.5s; /* حركة دخول ناعمة */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+} 
+body {
+    /* حط اسم الصورة بالظبط هنا */
+    background-image: url('bg.jpeg'); 
+      /* إعدادات الاحترافية */
+    background-size: cover;       /* تخلي الصورة تملأ الشاشة مهما كان حجمها */
+    background-position: center;  /* تخلي نص الصورة هو اللي في النص */
+    background-repeat: no-repeat; /* تمنع تكرار الصورة */
+    background-attachment: fixed; /* تخلي الخلفية ثابتة والأيقونات تتحرك فوقها */
+}
